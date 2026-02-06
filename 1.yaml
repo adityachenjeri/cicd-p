@@ -1,9 +1,10 @@
 name: "Running command and date"
 
 on:
-    push: #event
-        - master
-        - main
+    push:
+        branches:
+            - master
+            - main
 
 jobs:
     run-command-and-current-date: #job name
