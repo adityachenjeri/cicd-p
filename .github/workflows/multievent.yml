@@ -1,0 +1,33 @@
+name: "Multievent Workflow"
+
+on:
+    push:
+        branches:
+            - master
+            - main
+            
+    pull_request:
+        branches:
+            - master
+        types:
+            - opened
+            - closed
+
+    workflow_dispatch:
+
+jobs:
+    on-push:
+            if: github.event_name == 'push'
+            runs-on: ubuntu-latest
+
+            steps:
+                - name: "Running on PUSH"
+                  run: echo "Running on PUSH event"
+
+    pull-request:
+            if: github.event_name == 'pull-request'
+            runs-on: ubuntu-latest
+
+            steps:
+                - name: "Runs on getting pull request"
+                  run: echo "Running on getting a pull request"
